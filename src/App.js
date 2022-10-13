@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
 import Coin from '../src/Pages/Coin';
+import Footer from './Pages/Footer'
 
 function App() {
   const [coins, setCoins] = useState([]);
@@ -38,9 +39,12 @@ function App() {
           placeholder='Search'
         />
       </form>
-    </div>
+    </div> 
+
+
     {filteredCoins.map(coin => {
       return (
+        
         <Coin
           key={coin.id}
           name={coin.name}
@@ -51,8 +55,12 @@ function App() {
           image={coin.image}
           priceChange={coin.price_change_percentage_24h}
         />
+       
       );
     })}
+  
+
+  <Footer/>
   </div>
   );
 }
